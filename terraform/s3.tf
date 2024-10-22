@@ -3,14 +3,13 @@ resource "aws_s3_bucket" "upload_bucket" {
   bucket = var.bucket-api-upload-marcelo-v1
 
 # Habilita o versionamento de arquivos no bucket
-versioning {
+  versioning {
     enabled = true  
-}
-
-tags = {
+  }
+  tags = {
     Name = var.bucket-api-upload-marcelo-v1  # Nome do bucket
     Environment = "dev"     # Tag de ambiente (pode ser prod em produção)
-}
+  }
 }
 
 # Configura a trigger no bucket para acionar a Lambda quando um arquivo for criado

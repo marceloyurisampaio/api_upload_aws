@@ -26,27 +26,27 @@ variable "register-table-api-upload-marcelo-v1" {
 
 # Inclui o bucket S3 e a notificação de criação de objetos
 module "s3" {
-  source = "./s3"
+  source = "./s3.tf"
 }
 
 # Inclui a função Lambda e suas permissões
 module "lambda" {
-  source = "./lambda"
+  source = "./lambda.tf"
 }
 
 # Inclui a tabela DynamoDB para armazenar os metadados dos arquivos
 module "dynamodb" {
-  source = "./dynamodb"
+  source = "./dynamodb.tf"
 }
 
 # Configura o API Gateway para interagir com a função Lambda
 module "api_gateway" {
-  source = "./apigateway"
+  source = "./apigateway.tf"
 }
 
 # Inclui as permissões IAM necessárias para a função Lambda acessar o S3 e DynamoDB
 module "iam" {
-  source = "./iam"
+  source = "./iam.tf"
 }
 
 # Outputs para visualização após o apply
